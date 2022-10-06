@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/URTV/static/css/main.26e6c150.css",
+    "main.js": "/URTV/static/js/main.729564af.js",
+    "index.html": "/URTV/index.html",
+    "main.26e6c150.css.map": "/URTV/static/css/main.26e6c150.css.map",
+    "main.729564af.js.map": "/URTV/static/js/main.729564af.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.26e6c150.css",
+    "static/js/main.729564af.js"
+  ]
+}
