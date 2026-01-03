@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import TrailerPlayer from '../../components/TrailerPlayer/TrailerPlayer';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import { updateMetaTags, addStructuredData } from '../../utils/MetaTags';
 import { getMovieDetails, getImageUrl } from '../../services/api';
 import { extractIdFromSlug } from '../../utils/slug';
 import './MovieDetails.css';
@@ -32,6 +33,36 @@ const MovieDetails = () => {
       setError(null);
       const response = await getMovieDetails(movieId);
       setMovie(response.data);
+      
+      // Update SEO meta tags with movie details
+      const movieTitle = response.data.title;
+      const movieDescription = response.data.overview || `Watch ${movieTitle} on URTV. Rating: ${response.data.vote_average}/10`;
+      const movieImage = getImageUrl(response.data.poster_path, 'w500');
+      const canonicalUrl = `https://urtv.com/movie/${slug}`;
+      
+      updateMetaTags(
+        `${movieTitle} - Watch Movie | URTV`,
+        movieDescription,
+        movieImage,
+        canonicalUrl
+      );
+      
+      // Add structured data for movie
+      addStructuredData({
+        '@context': 'https://schema.org',
+        '@type': 'Movie',
+        'name': movieTitle,
+        'description': movieDescription,
+        'image': movieImage,
+        'datePublished': response.data.release_date,
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': response.data.vote_average,
+          'bestRating': '10',
+          'ratingCount': response.data.vote_count
+        },
+        'duration': `PT${response.data.runtime}M`
+      });
     } catch (err) {
       console.error('Error fetching movie details:', err);
       setError('Failed to load movie details.');

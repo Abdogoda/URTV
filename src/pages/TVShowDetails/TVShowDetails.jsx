@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import TrailerPlayer from '../../components/TrailerPlayer/TrailerPlayer';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import { updateMetaTags, addStructuredData } from '../../utils/MetaTags';
 import { getTVShowDetails, getImageUrl } from '../../services/api';
 import { extractIdFromSlug } from '../../utils/slug';
 import './TVShowDetails.css';
@@ -32,6 +33,38 @@ const TVShowDetails = () => {
       setError(null);
       const response = await getTVShowDetails(showId);
       setShow(response.data);
+      
+      // Update SEO meta tags with show details
+      const showTitle = response.data.name;
+      const showDescription = response.data.overview || `Watch ${showTitle} on URTV. Rating: ${response.data.vote_average}/10. ${response.data.number_of_seasons} seasons, ${response.data.number_of_episodes} episodes.`;
+      const showImage = getImageUrl(response.data.poster_path, 'w500');
+      const canonicalUrl = `https://urtv.com/tv/${slug}`;
+      
+      updateMetaTags(
+        `${showTitle} - Watch TV Show | URTV`,
+        showDescription,
+        showImage,
+        canonicalUrl
+      );
+      
+      // Add structured data for TV show
+      addStructuredData({
+        '@context': 'https://schema.org',
+        '@type': 'TVSeries',
+        'name': showTitle,
+        'description': showDescription,
+        'image': showImage,
+        'datePublished': response.data.first_air_date,
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': response.data.vote_average,
+          'bestRating': '10',
+          'ratingCount': response.data.vote_count
+        },
+        'numberOfSeasons': response.data.number_of_seasons,
+        'numberOfEpisodes': response.data.number_of_episodes,
+        'status': response.data.status
+      });
     } catch (err) {
       console.error('Error fetching show details:', err);
       setError('Failed to load show details.');

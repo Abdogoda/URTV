@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import { updateMetaTags } from '../../utils/MetaTags';
 import {
   getPopularMovies,
   getUpcomingMovies,
@@ -22,6 +23,13 @@ const MoviesPage = () => {
   const [featured, setFeatured] = useState(null);
 
   useEffect(() => {
+    // Update SEO for movies page
+    updateMetaTags(
+      'Movies | Browse Popular, Upcoming & Top Rated | URTV',
+      'Discover popular, upcoming, and top-rated movies. Browse detailed information, ratings, and cast for all movies on URTV.',
+      '',
+      'https://urtv.com/movies'
+    );
     fetchData();
   }, []);
 

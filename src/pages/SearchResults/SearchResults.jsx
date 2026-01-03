@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import { updateMetaTags } from '../../utils/MetaTags';
 import { searchMulti } from '../../services/api';
 import './SearchResults.css';
 
@@ -16,6 +17,13 @@ const SearchResults = () => {
 
   useEffect(() => {
     if (query) {
+      // Update SEO for search results
+      updateMetaTags(
+        `Search Results for "${query}" | URTV`,
+        `Search results for "${query}" - movies and TV shows on URTV. Find your favorite entertainment.`,
+        '',
+        `https://urtv.com/search?q=${encodeURIComponent(query)}`
+      );
       performSearch();
     }
   }, [query]);

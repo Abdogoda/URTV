@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import { updateMetaTags } from '../../utils/MetaTags';
 import {
   getPopularTVShows,
   getTopRatedTVShows,
@@ -20,6 +21,13 @@ const TVShowsPage = () => {
   const [featured, setFeatured] = useState(null);
 
   useEffect(() => {
+    // Update SEO for TV shows page
+    updateMetaTags(
+      'TV Shows | Browse Popular & Top Rated | URTV',
+      'Discover popular and top-rated TV shows with detailed information about seasons, episodes, ratings, and cast on URTV.',
+      '',
+      'https://urtv.com/tvshows'
+    );
     fetchData();
   }, []);
 

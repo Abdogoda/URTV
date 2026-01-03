@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Carousel from '../../components/Carousel/Carousel';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import { updateMetaTags, addStructuredData } from '../../utils/MetaTags';
 import {
   getPopularMovies,
   getUpcomingMovies,
@@ -35,6 +36,29 @@ const Home = () => {
   };
 
   useEffect(() => {
+    // Update SEO meta tags for home page
+    updateMetaTags(
+      'URTV - Discover Movies & TV Shows | Watch Now',
+      'Explore the latest movies and TV shows with ratings, cast, and detailed information. Discover your next favorite entertainment on URTV.',
+      '',
+      'https://urtv.com'
+    );
+    
+    // Add structured data for homepage
+    addStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      'name': 'URTV',
+      'description': 'Movies and TV Shows Database',
+      'url': 'https://urtv.com',
+      'applicationCategory': 'EntertainmentApplication',
+      'offers': {
+        '@type': 'Offer',
+        'price': '0',
+        'priceCurrency': 'USD'
+      }
+    });
+    
     fetchData();
   }, [category]);
 
