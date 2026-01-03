@@ -1,0 +1,126 @@
+.watchlist-page {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+  padding: 2rem;
+}
+
+.watchlist-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.watchlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.watchlist-header h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0;
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.watchlist-count {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.watchlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.watchlist-item {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.watchlist-item:hover .remove-btn {
+  opacity: 1;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(74, 144, 226, 0.9);
+  color: #fff;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.remove-btn:hover {
+  background: rgba(74, 144, 226, 1);
+  transform: scale(1.1);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.empty-message {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0.5rem 0;
+  font-weight: 600;
+}
+
+.empty-description {
+  color: #aaa;
+  font-size: 1rem;
+  margin: 0.5rem 0 0 0;
+}
+
+@media (max-width: 768px) {
+  .watchlist-page {
+    padding: 1rem;
+  }
+
+  .watchlist-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .watchlist-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .watchlist-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .clear-btn {
+    width: 100%;
+  }
+}

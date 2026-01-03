@@ -25,11 +25,20 @@ const Header = () => {
         </div>
 
         <nav className="navbar">
+          <Link to="/" className="nav-link">
+            HOME
+          </Link>
           <Link to="/movies" className="nav-link">
             MOVIES
           </Link>
           <Link to="/tvshows" className="nav-link">
             TV SHOWS
+          </Link>
+          <Link to="/favorites" className="nav-link">
+            ❤️ FAVORITES
+          </Link>
+          <Link to="/watchlist" className="nav-link">
+            📋 WATCHLIST
           </Link>
         </nav>
 
