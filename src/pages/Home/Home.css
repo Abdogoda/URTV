@@ -1,0 +1,272 @@
+.home-page {
+  width: 100%;
+}
+
+.featured-section {
+  position: relative;
+  height: 600px;
+  margin-bottom: 3rem;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.featured-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.backdrop-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(13, 13, 13, 0.9) 0%,
+    rgba(13, 13, 13, 0.7) 50%,
+    rgba(13, 13, 13, 0.5) 100%
+  );
+}
+
+.featured-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.featured-poster {
+  flex: 0 0 auto;
+  width: 280px;
+  height: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+}
+
+.featured-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-info {
+  flex: 1;
+  color: #fff;
+}
+
+.featured-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.featured-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.rating {
+  color: #ffd700;
+  font-weight: 700;
+}
+
+.votes {
+  color: #aaa;
+}
+
+.featured-overview {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.featured-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.9rem 2.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-primary {
+  background: #c41e3a;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #a01630;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(196, 30, 58, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.btn-secondary:hover {
+  background: #fff;
+  color: #0d0d0d;
+  transform: translateY(-3px);
+}
+
+.btn-tertiary {
+  background: transparent;
+  color: #c41e3a;
+  border: 2px solid #c41e3a;
+}
+
+.btn-tertiary:hover {
+  background: #c41e3a;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(196, 30, 58, 0.4);
+}
+
+.btn-active {
+  background: #4caf50;
+  color: #fff;
+  text-transform: none;
+}
+
+.btn-active:hover {
+  background: #45a049;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(76, 175, 80, 0.4);
+}
+
+.content-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 1200px) {
+  .featured-section {
+    height: 500px;
+    margin-bottom: 2rem;
+  }
+
+  .featured-content {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .featured-poster {
+    width: 240px;
+    height: 360px;
+  }
+
+  .featured-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-section {
+    height: 450px;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .featured-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .featured-poster {
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+  }
+
+  .featured-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .featured-meta {
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  .featured-overview {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .featured-actions {
+    justify-content: center;
+  }
+
+  .content-section {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-section {
+    height: 350px;
+    margin-bottom: 1rem;
+  }
+
+  .featured-content {
+    padding: 1rem;
+  }
+
+  .featured-poster {
+    width: 150px;
+    height: 225px;
+  }
+
+  .featured-title {
+    font-size: 1.5rem;
+  }
+
+  .featured-overview {
+    display: none;
+  }
+
+  .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .content-section {
+    padding: 0 0.5rem;
+  }
+}
