@@ -348,6 +348,37 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .details-backdrop {
+    height: 300px;
+    margin-bottom: 1.5rem;
+  }
+
+  .details-container {
+    padding: 0 1.5rem 2.5rem 1.5rem;
+  }
+
+  .details-content {
+    gap: 2rem;
+  }
+
+  .details-poster {
+    flex: 0 0 250px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .meta-info {
+    font-size: 1rem;
+  }
+
+  .cast-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .details-backdrop {
     height: 250px;
@@ -374,6 +405,10 @@
     font-size: 1.8rem;
   }
 
+  .meta-info {
+    font-size: 0.95rem;
+  }
+
   .details-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -381,11 +416,21 @@
   .cast-list {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .genres {
+    gap: 0.5rem;
+  }
+
+  .genre-tag {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
 }
 
 @media (max-width: 480px) {
   .details-backdrop {
-    display: none;
+    height: 180px;
+    margin-bottom: 1rem;
   }
 
   .details-container {
@@ -398,31 +443,57 @@
   }
 
   .title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .meta-info {
+    font-size: 0.8rem;
+    gap: 0.5rem;
+  }
+
+  .tagline {
     font-size: 0.9rem;
   }
 
   .section h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .overview {
+    font-size: 0.9rem;
   }
 
   .details-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .cast-list {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .cast-member img {
+    margin-bottom: 0.5rem;
+  }
+
+  .cast-member .name {
+    font-size: 0.8rem;
+  }
+
+  .cast-member .character {
+    font-size: 0.75rem;
   }
 
   .actions {
     flex-direction: column;
+    gap: 0.5rem;
   }
 
   .btn {
     width: 100%;
     text-align: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
   }
 }

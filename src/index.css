@@ -92,14 +92,59 @@ select {
 }
 
 /* Responsive Typography */
+@media (max-width: 1200px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 15.5px;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     font-size: 15px;
+  }
+
+  /* Improve touch targets on mobile */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  a {
+    min-height: 44px;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    font-size: 14.5px;
   }
 }
 
 @media (max-width: 480px) {
   :root {
     font-size: 14px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Ensure images fit screen */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    font-size: 13px;
   }
 }
