@@ -11,7 +11,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/URTV/">
       <div className="app">
         <Header />
         <main className="main-content">
