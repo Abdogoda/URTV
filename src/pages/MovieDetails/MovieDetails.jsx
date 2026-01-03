@@ -5,6 +5,7 @@ import TrailerPlayer from '../../components/TrailerPlayer/TrailerPlayer';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { updateMetaTags, addStructuredData } from '../../utils/MetaTags';
+import { shouldPrerender } from '../../services/prerender';
 import { getMovieDetails, getImageUrl } from '../../services/api';
 import { extractIdFromSlug } from '../../utils/slug';
 import './MovieDetails.css';
@@ -38,13 +39,14 @@ const MovieDetails = () => {
       const movieTitle = response.data.title;
       const movieDescription = response.data.overview || `Watch ${movieTitle} on URTV. Rating: ${response.data.vote_average}/10`;
       const movieImage = `https://image.tmdb.org/t/p/w500${response.data.poster_path}`;
-      const canonicalUrl = `https://abdogoda.github.io/URTV/movie/${slug}`;
+      const canonicalUrl = `https://abdogoda.github.io/URTV/#/movie/${slug}`;
       
       updateMetaTags(
         `${movieTitle} - Watch Movie | URTV`,
         movieDescription,
         movieImage,
-        canonicalUrl
+        canonicalUrl,
+        'video.movie'
       );
       
       // Add structured data for movie

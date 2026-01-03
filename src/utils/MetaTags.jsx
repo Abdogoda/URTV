@@ -1,5 +1,5 @@
 // MetaTags utility for managing page title and meta descriptions
-export const updateMetaTags = (title, description, ogImage = '', canonicalUrl = '') => {
+export const updateMetaTags = (title, description, ogImage = '', canonicalUrl = '', contentType = 'website') => {
   // Update document title
   document.title = title;
   
@@ -74,7 +74,7 @@ export const updateMetaTags = (title, description, ogImage = '', canonicalUrl = 
     ogType.setAttribute('property', 'og:type');
     document.head.appendChild(ogType);
   }
-  ogType.setAttribute('content', 'website');
+  ogType.setAttribute('content', contentType);
 
   // Update Open Graph URL
   if (canonicalUrl) {
