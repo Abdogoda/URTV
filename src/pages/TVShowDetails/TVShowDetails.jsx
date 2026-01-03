@@ -37,8 +37,8 @@ const TVShowDetails = () => {
       // Update SEO meta tags with show details
       const showTitle = response.data.name;
       const showDescription = response.data.overview || `Watch ${showTitle} on URTV. Rating: ${response.data.vote_average}/10. ${response.data.number_of_seasons} seasons, ${response.data.number_of_episodes} episodes.`;
-      const showImage = getImageUrl(response.data.poster_path, 'w500');
-      const canonicalUrl = `https://urtv.com/tv/${slug}`;
+      const showImage = `https://image.tmdb.org/t/p/w500${response.data.poster_path}`;
+      const canonicalUrl = `https://abdogoda.github.io/URTV/tv/${slug}`;
       
       updateMetaTags(
         `${showTitle} - Watch TV Show | URTV`,

@@ -37,8 +37,8 @@ const MovieDetails = () => {
       // Update SEO meta tags with movie details
       const movieTitle = response.data.title;
       const movieDescription = response.data.overview || `Watch ${movieTitle} on URTV. Rating: ${response.data.vote_average}/10`;
-      const movieImage = getImageUrl(response.data.poster_path, 'w500');
-      const canonicalUrl = `https://urtv.com/movie/${slug}`;
+      const movieImage = `https://image.tmdb.org/t/p/w500${response.data.poster_path}`;
+      const canonicalUrl = `https://abdogoda.github.io/URTV/movie/${slug}`;
       
       updateMetaTags(
         `${movieTitle} - Watch Movie | URTV`,

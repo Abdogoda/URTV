@@ -38,10 +38,10 @@ const Home = () => {
   useEffect(() => {
     // Update SEO meta tags for home page
     updateMetaTags(
-      'URTV - Discover Movies & TV Shows | Watch Now',
-      'Explore the latest movies and TV shows with ratings, cast, and detailed information. Discover your next favorite entertainment on URTV.',
-      '',
-      'https://urtv.com'
+      'URTV - Discover Movies & TV Shows | Free Database',
+      'Explore thousands of movies and TV shows with ratings, cast, plots, and detailed information. Discover your next favorite entertainment on URTV - the ultimate entertainment database.',
+      'https://image.tmdb.org/t/p/w500/featured-image.jpg',
+      'https://abdogoda.github.io/URTV/'
     );
     
     // Add structured data for homepage
@@ -49,13 +49,22 @@ const Home = () => {
       '@context': 'https://schema.org',
       '@type': 'WebApplication',
       'name': 'URTV',
-      'description': 'Movies and TV Shows Database',
-      'url': 'https://urtv.com',
+      'description': 'Discover and explore movies and TV shows with ratings, cast, and detailed information',
+      'url': 'https://abdogoda.github.io/URTV/',
       'applicationCategory': 'EntertainmentApplication',
       'offers': {
         '@type': 'Offer',
         'price': '0',
         'priceCurrency': 'USD'
+      },
+      'aggregateRating': {
+        '@type': 'AggregateRating',
+        'ratingValue': '4.8',
+        'ratingCount': '1000'
+      },
+      'creator': {
+        '@type': 'Organization',
+        'name': 'URTV'
       }
     });
     

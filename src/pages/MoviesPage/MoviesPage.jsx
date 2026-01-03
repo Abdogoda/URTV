@@ -25,10 +25,10 @@ const MoviesPage = () => {
   useEffect(() => {
     // Update SEO for movies page
     updateMetaTags(
-      'Movies | Browse Popular, Upcoming & Top Rated | URTV',
-      'Discover popular, upcoming, and top-rated movies. Browse detailed information, ratings, and cast for all movies on URTV.',
+      'Movies | Popular, Upcoming & Top Rated Movies | URTV',
+      'Explore popular, upcoming, and top-rated movies with detailed information, ratings, reviews, and cast. Find your next favorite movie on URTV.',
       '',
-      'https://urtv.com/movies'
+      'https://abdogoda.github.io/URTV/movies'
     );
     fetchData();
   }, []);

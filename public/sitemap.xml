@@ -5,34 +5,50 @@
     
     <!-- Home Page -->
     <url>
-        <loc>https://urtv.com</loc>
-        <lastmod>2024-01-03</lastmod>
-        <changefreq>weekly</changefreq>
+        <loc>https://abdogoda.github.io/URTV/</loc>
+        <lastmod>2026-01-03</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     
     <!-- Movies Page -->
     <url>
-        <loc>https://urtv.com/movies</loc>
-        <lastmod>2024-01-03</lastmod>
+        <loc>https://abdogoda.github.io/URTV/movies</loc>
+        <lastmod>2026-01-03</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
     
     <!-- TV Shows Page -->
     <url>
-        <loc>https://urtv.com/tvshows</loc>
-        <lastmod>2024-01-03</lastmod>
+        <loc>https://abdogoda.github.io/URTV/tvshows</loc>
+        <lastmod>2026-01-03</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
     
     <!-- Search Page -->
     <url>
-        <loc>https://urtv.com/search</loc>
-        <lastmod>2024-01-03</lastmod>
+        <loc>https://abdogoda.github.io/URTV/search</loc>
+        <lastmod>2026-01-03</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Popular Movies (Sample) -->
+    <url>
+        <loc>https://abdogoda.github.io/URTV/movie/the-shawshank-redemption-278</loc>
+        <lastmod>2026-01-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Popular TV Shows (Sample) -->
+    <url>
+        <loc>https://abdogoda.github.io/URTV/tv/breaking-bad-1396</loc>
+        <lastmod>2026-01-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
     
 </urlset>

@@ -5,9 +5,7 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /*.json$
-
-# Sitemap location
-Sitemap: https://urtv.com/sitemap.xml
+Crawl-delay: 0
 
 # Specific rules for common bots
 User-agent: Googlebot
@@ -17,3 +15,10 @@ Crawl-delay: 0
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://abdogoda.github.io/URTV/sitemap.xml

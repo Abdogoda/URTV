@@ -12,6 +12,15 @@ export const updateMetaTags = (title, description, ogImage = '', canonicalUrl = 
   }
   metaDescription.setAttribute('content', description);
   
+  // Update meta keywords based on page content
+  let metaKeywords = document.querySelector('meta[name="keywords"]');
+  if (!metaKeywords) {
+    metaKeywords = document.createElement('meta');
+    metaKeywords.setAttribute('name', 'keywords');
+    document.head.appendChild(metaKeywords);
+  }
+  metaKeywords.setAttribute('content', 'movies, TV shows, streaming, entertainment, ratings, cast, watch');
+  
   // Update Open Graph title
   let ogTitle = document.querySelector('meta[property="og:title"]');
   if (!ogTitle) {
@@ -39,6 +48,43 @@ export const updateMetaTags = (title, description, ogImage = '', canonicalUrl = 
       document.head.appendChild(ogImageMeta);
     }
     ogImageMeta.setAttribute('content', ogImage);
+    
+    // Add image width and height
+    let ogImageWidth = document.querySelector('meta[property="og:image:width"]');
+    if (!ogImageWidth) {
+      ogImageWidth = document.createElement('meta');
+      ogImageWidth.setAttribute('property', 'og:image:width');
+      document.head.appendChild(ogImageWidth);
+    }
+    ogImageWidth.setAttribute('content', '500');
+    
+    let ogImageHeight = document.querySelector('meta[property="og:image:height"]');
+    if (!ogImageHeight) {
+      ogImageHeight = document.createElement('meta');
+      ogImageHeight.setAttribute('property', 'og:image:height');
+      document.head.appendChild(ogImageHeight);
+    }
+    ogImageHeight.setAttribute('content', '750');
+  }
+
+  // Update Open Graph type
+  let ogType = document.querySelector('meta[property="og:type"]');
+  if (!ogType) {
+    ogType = document.createElement('meta');
+    ogType.setAttribute('property', 'og:type');
+    document.head.appendChild(ogType);
+  }
+  ogType.setAttribute('content', 'website');
+
+  // Update Open Graph URL
+  if (canonicalUrl) {
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (!ogUrl) {
+      ogUrl = document.createElement('meta');
+      ogUrl.setAttribute('property', 'og:url');
+      document.head.appendChild(ogUrl);
+    }
+    ogUrl.setAttribute('content', canonicalUrl);
   }
   
   // Update canonical URL if provided
@@ -80,6 +126,15 @@ export const updateMetaTags = (title, description, ogImage = '', canonicalUrl = 
     }
     twitterImage.setAttribute('content', ogImage);
   }
+  
+  // Update Twitter card type
+  let twitterCard = document.querySelector('meta[name="twitter:card"]');
+  if (!twitterCard) {
+    twitterCard = document.createElement('meta');
+    twitterCard.setAttribute('name', 'twitter:card');
+    document.head.appendChild(twitterCard);
+  }
+  twitterCard.setAttribute('content', 'summary_large_image');
 };
 
 export const addStructuredData = (data) => {

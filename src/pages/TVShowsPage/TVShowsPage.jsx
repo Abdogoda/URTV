@@ -23,10 +23,10 @@ const TVShowsPage = () => {
   useEffect(() => {
     // Update SEO for TV shows page
     updateMetaTags(
-      'TV Shows | Browse Popular & Top Rated | URTV',
-      'Discover popular and top-rated TV shows with detailed information about seasons, episodes, ratings, and cast on URTV.',
+      'TV Shows | Popular & Top Rated Series | URTV',
+      'Browse popular and top-rated TV shows with detailed information about seasons, episodes, ratings, cast, and reviews on URTV.',
       '',
-      'https://urtv.com/tvshows'
+      'https://abdogoda.github.io/URTV/tvshows'
     );
     fetchData();
   }, []);
