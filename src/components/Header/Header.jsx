@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -44,19 +49,19 @@ const Header = () => {
 
 
         <nav className={`navbar ${mobileMenuOpen ? 'active' : ''}`}>
-          <Link to="/" className="nav-link" onClick={handleNavClick}>
+          <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`} onClick={handleNavClick}>
             HOME
           </Link>
-          <Link to="/movies" className="nav-link" onClick={handleNavClick}>
+          <Link to="/movies" className={`nav-link ${isActive('/movies') ? 'active' : ''}`} onClick={handleNavClick}>
             MOVIES
           </Link>
-          <Link to="/tvshows" className="nav-link" onClick={handleNavClick}>
+          <Link to="/tvshows" className={`nav-link ${isActive('/tvshows') ? 'active' : ''}`} onClick={handleNavClick}>
             TV SHOWS
           </Link>
-          <Link to="/favorites" className="nav-link" onClick={handleNavClick}>
+          <Link to="/favorites" className={`nav-link ${isActive('/favorites') ? 'active' : ''}`} onClick={handleNavClick}>
             ❤️ FAVORITES
           </Link>
-          <Link to="/watchlist" className="nav-link" onClick={handleNavClick}>
+          <Link to="/watchlist" className={`nav-link ${isActive('/watchlist') ? 'active' : ''}`} onClick={handleNavClick}>
             📋 WATCHLIST
           </Link>
           <form onSubmit={handleSearch} className="mobile-search-form">
